@@ -11,6 +11,7 @@
 + **Example Repo - Blog:** https://github.com/majk-p/home-assistant-addons
 + **Example Repo - HASSIO:** https://github.com/hassio-addons/addon-example
 + **Markdown:** https://www.markdownguide.org/basic-syntax/#overview
++ **Base Debian Image:** https://github.com/hassio-addons/addon-debian-base
 
 ## NOTES:
  A bunch of **markdown** files like DOCS.md, README.md and CHANGELOG.md
