@@ -1,0 +1,4 @@
+# https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
+name: Home Assistant add-on repository by CzarofAK
+url: 'https://github.com/CzarofAK/homesassistant-addons'
+maintainer: Gabriel Kost <github.ocean267@passmail.net>
