@@ -4,9 +4,12 @@
 
 
 ## LINKS:
-+ **Blog post:** https://blog.michal.pawlik.dev/posts/smarthome/home-assistant-addons/
 + **HA developers:** https://developers.home-assistant.io/docs/add-ons/configuration/
-+ **Example Repo:** https://github.com/majk-p/home-assistant-addons
++ **HASSIO manual:** https://github.com/hassio-addons/addon-example/blob/main/example/DOCS.md
++ **Blog post - the78mole:** https://the78mole.de/just-do-it-how-to-create-your-own-home-assistant-add-on-part-1/
++ **Blog post - michal.pawlik:** https://blog.michal.pawlik.dev/posts/smarthome/home-assistant-addons/
++ **Example Repo - Blog:** https://github.com/majk-p/home-assistant-addons
++ **Example Repo - HASSIO:** https://github.com/hassio-addons/addon-example
 + **Markdown:** https://www.markdownguide.org/basic-syntax/#overview
 
 ## NOTES:
