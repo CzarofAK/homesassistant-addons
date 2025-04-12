@@ -10,4 +10,6 @@ startup: "services"
 boot: "auto"
 ports:
   8110/tcp: 8110
+hassio_api: true
+homeassistant_api: true
 schema: {}
