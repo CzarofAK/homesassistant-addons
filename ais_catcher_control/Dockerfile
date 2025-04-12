@@ -12,9 +12,6 @@ RUN apt-get update && apt-get install -y \
 COPY install_ais-catcher_control.sh /tmp/install_ais-catcher_control.sh
 RUN chmod +x /tmp/install_ais-catcher_control.sh
 
-# Disable systemd-related steps in the script
-RUN sed -i '/systemctl/d' /tmp/install_ais-catcher_control.sh
-
 # Run the installation script
 RUN bash -x /tmp/install_ais-catcher_control.sh || (echo "Installation script failed" && exit 1)
 
