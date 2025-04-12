@@ -1,15 +1,17 @@
-ARG BUILD_FROM
+ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:latest
 FROM $BUILD_FROM
 
-# Install dependencies
-RUN apk add --no-cache \
-    curl jq bash iproute2 \
-    make gcc g++ cmake pkgconf \
-    libusb-dev libairspy-dev libhackrf-dev \
-    zeromq-dev soxr-dev zlib-dev \
-    postgresql-dev openssl-dev
+ENV TZ=UTC
 
-# Fetch and run the installation script
+# Add Bashio for Home Assistant add-on compatibility
+ADD https://github.com/hassio-addons/bashio/archive/v0.15.0.tar.gz /tmp/bashio.tar.gz
+RUN apk add --no-cache curl jq bash && \
+    mkdir /tmp/bashio && \
+    tar zxvf /tmp/bashio.tar.gz --strip 1 -C /tmp/bashio && \
+    mv /tmp/bashio/lib /usr/lib/bashio && \
+    ln -s /usr/lib/bashio/bashio /usr/bin/bashio
+
+# Fetch and run the AIS-catcher-control installation script
 RUN curl -fsSL https://raw.githubusercontent.com/jvde-github/AIS-catcher-control/main/install_ais_catcher_control.sh -o /tmp/install_ais_catcher_control.sh && \
     chmod +x /tmp/install_ais_catcher_control.sh && \
     bash /tmp/install_ais_catcher_control.sh
