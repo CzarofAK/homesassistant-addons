@@ -1,24 +1,18 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-# Add Alpine repositories (if needed)
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/latest-stable/main" > /etc/apk/repositories && \
-    echo "http://dl-cdn.alpinelinux.org/alpine/latest-stable/community" >> /etc/apk/repositories
-
 # Install dependencies
 RUN apk add --no-cache \
     curl jq bash iproute2 \
     make gcc g++ cmake pkgconf \
-    libusb libairspy libhackrf \
+    libusb-dev libairspy-dev libhackrf-dev \
     zeromq-dev soxr-dev zlib-dev \
     postgresql-dev openssl-dev
 
-# Copy the installation script
-COPY install_ais-catcher_control.sh /tmp/install_ais-catcher_control.sh
-RUN chmod +x /tmp/install_ais-catcher_control.sh
-
-# Run the installation script
-RUN bash /tmp/install_ais-catcher_control.sh
+# Fetch and run the installation script
+RUN curl -fsSL https://raw.githubusercontent.com/jvde-github/AIS-catcher-control/main/install_ais_catcher_control.sh -o /tmp/install_ais_catcher_control.sh && \
+    chmod +x /tmp/install_ais_catcher_control.sh && \
+    bash /tmp/install_ais_catcher_control.sh
 
 # Copy the run script
 COPY run.sh /run.sh
