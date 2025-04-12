@@ -8,9 +8,7 @@ arch:
   - aarch64
 startup: "services"
 boot: "auto"
-privileged: true
-devices:
-  - /dev/bus/usb:/dev/bus/usb
+usb: true
 ports:
   8110/tcp: 8110
   8100/tcp: 8100
