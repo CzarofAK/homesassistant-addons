@@ -1,0 +1,20 @@
+name: "AIS-catcher Control"
+version: "1.0.0"
+slug: "ais_catcher_control"
+description: "Home Assistant Add-on to run AIS-catcher Control."
+arch:
+  - amd64
+  - armv7
+  - aarch64
+startup: "services"
+boot: "auto"
+ports:
+  8110/tcp: 8110
+options:
+  gpsd_ip: "127.0.0.1"
+  gpsd_port: 2947
+  share_loc: false
+schema:
+  gpsd_ip: "str"
+  gpsd_port: "port"
+  share_loc: "bool"
