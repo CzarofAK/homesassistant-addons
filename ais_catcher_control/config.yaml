@@ -18,5 +18,9 @@ ports:
   8100/tcp: 8100
 panel_icon: mdi:ferry
 panel_title: AIS Catcher
-options: {}
-schema: {}
+options:
+  HTML_SITE_LAT: HOMEASSISTANT_LATITUDE
+  HTML_SITE_LON: HOMEASSISTANT_LONGITUDE
+schema:
+  HTML_SITE_LAT: match([+-]?(([1-9][0-9]*)|(0))([.,][0-9]+)?|HOMEASSISTANT_LATITUDE)?
+  HTML_SITE_LON: match([+-]?(([1-9][0-9]*)|(0))([.,][0-9]+)?|HOMEASSISTANT_LONGITUDE)?
