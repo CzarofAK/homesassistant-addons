@@ -1,4 +1,4 @@
-# AIS-catcher Control Add-on v1.0.0
+# AIS-catcher Control Add-on
 
 This Home Assistant Add-on runs AIS-catcher Control, a tool for managing AIS-catcher services.
 
