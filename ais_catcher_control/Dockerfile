@@ -1,26 +1,26 @@
-FROM debian:bookworm-slim
+ARG BUILD_FROM
+FROM $BUILD_FROM
 
 # Install dependencies
-RUN apt-get update && apt-get install -y \
-    git curl jq procps iproute2 \
-    make gcc g++ cmake pkg-config \
-    libusb-1.0-0-dev libairspy-dev libhackrf-dev \
-    libzmq3-dev libsoxr-dev zlib1g-dev libpq-dev libssl-dev \
-    && apt-get clean
+RUN apk add --no-cache \
+    curl jq bash iproute2 \
+    make gcc g++ cmake pkgconfig \
+    libusb-dev libairspy-dev libhackrf-dev \
+    zeromq-dev soxr-dev zlib-dev postgresql-dev openssl-dev
 
-# Copy the installation script into the container
+# Copy the installation script
 COPY install_ais-catcher_control.sh /tmp/install_ais-catcher_control.sh
 RUN chmod +x /tmp/install_ais-catcher_control.sh
 
 # Run the installation script
-RUN bash -x /tmp/install_ais-catcher_control.sh || (echo "Installation script failed" && exit 1)
-
-# Expose the port for AIS-catcher-control
-EXPOSE 8110
+RUN bash /tmp/install_ais-catcher_control.sh
 
 # Copy the run script
 COPY run.sh /run.sh
 RUN chmod +x /run.sh
+
+# Expose the port
+EXPOSE 8110
 
 # Set the default command
 CMD [ "/run.sh" ]
