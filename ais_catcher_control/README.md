@@ -13,5 +13,4 @@ This Home Assistant Add-on runs AIS-catcher Control, a tool for managing AIS-cat
 ## To-do-list
 1. Connection ssue with my Cypho-150
 2. Pulling GPS data from the HomeAssistant like this addon: https://github.com/MaxWinterstein/homeassistant-addons/tree/main/adsb-multi-portal-feeder
-3. Add configuration field for the webserver port
-4. webinterface to be shown in the sidebar of HA
+3. webinterface to be shown in the sidebar of HA
