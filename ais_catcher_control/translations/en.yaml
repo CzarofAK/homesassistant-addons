@@ -1,1 +1,10 @@
-
+configuration:
+  gpsd_ip:
+    name: GPSD IP Address
+    description: IP address of the GPSD server.
+  gpsd_port:
+    name: GPSD Port
+    description: Port of the GPSD server.
+  share_loc:
+    name: Share Location
+    description: Enable location sharing with AIS-catcher.
