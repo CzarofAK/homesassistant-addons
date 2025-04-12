@@ -1,6 +1,8 @@
 slug: ais_catcher_control
 name: "AIS-catcher Control"
 description: "AIS-catcher Control for managing AIS-catcher services."
+url: https://github.com/CzarofAK/homeassistant-addons/
+image: ghcr.io/czarofak/homeassistant-ais_catcher_control-{arch}
 version: "1.0.0"
 arch:
   - amd64
