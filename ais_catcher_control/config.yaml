@@ -12,4 +12,11 @@ ports:
   8110/tcp: 8110
 hassio_api: true
 homeassistant_api: true
-schema: {}
+schema:
+  gpsd_ip: "str"
+  gpsd_port: "port"
+  share_loc: "bool"
+options:
+  gpsd_ip: "127.0.0.1"
+  gpsd_port: 2947
+  share_loc: false
