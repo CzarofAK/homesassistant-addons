@@ -10,11 +10,4 @@ startup: "services"
 boot: "auto"
 ports:
   8110/tcp: 8110
-options:
-  gpsd_ip: "127.0.0.1"
-  gpsd_port: 2947
-  share_loc: false
-schema:
-  gpsd_ip: "str"
-  gpsd_port: "port"
-  share_loc: "bool"
+schema: {}
