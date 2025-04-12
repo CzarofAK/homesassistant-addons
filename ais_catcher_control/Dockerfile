@@ -1,9 +1,6 @@
-ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:latest
-FROM $BUILD_FROM
+FROM ghcr.io/jvde-github/ais-catcher-control:edge
 
-ENV TZ=UTC
-
-# Add Bashio for Home Assistant add-on compatibility
+# Add Bashio for Home Assistant compatibility
 ADD https://github.com/hassio-addons/bashio/archive/v0.15.0.tar.gz /tmp/bashio.tar.gz
 RUN apk add --no-cache curl jq bash && \
     mkdir /tmp/bashio && \
@@ -11,17 +8,9 @@ RUN apk add --no-cache curl jq bash && \
     mv /tmp/bashio/lib /usr/lib/bashio && \
     ln -s /usr/lib/bashio/bashio /usr/bin/bashio
 
-# Fetch and run the AIS-catcher-control installation script
-RUN curl -fsSL https://raw.githubusercontent.com/jvde-github/AIS-catcher-control/main/install_ais_catcher_control.sh -o /tmp/install_ais_catcher_control.sh && \
-    chmod +x /tmp/install_ais_catcher_control.sh && \
-    bash /tmp/install_ais_catcher_control.sh
-
-# Copy the run script
-COPY run.sh /run.sh
-RUN chmod +x /run.sh
-
-# Expose the port
+# Expose the required ports
 EXPOSE 8110
+EXPOSE 8100
 
 # Set the default command
-CMD [ "/run.sh" ]
+CMD [ "/usr/bin/AIS-catcher-control" ]
