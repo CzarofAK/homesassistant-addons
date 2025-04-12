@@ -1,26 +1,18 @@
 slug: ais_catcher_control
-url: https://github.com/jvde-github/AIS-catcher-control
-image: ghcr.io/home-assistant/ais-catcher-control-{arch}
-version: 1.0.0
+name: "AIS-catcher Control"
+description: "AIS-catcher Control for managing AIS-catcher services."
+version: "1.0.0"
 arch:
+  - amd64
   - armv7
   - aarch64
-  - amd64
-description: AIS-catcher Control for managing AIS-catcher services.
-hassio_api: true
-homeassistant_api: true
-ingress: false
-init: false
-name: AIS-catcher Control
-options:
-  gpsd_ip: "127.0.0.1"
-  gpsd_port: 2947
-  share_loc: false
+startup: "services"
+boot: "auto"
+privileged: true
+devices:
+  - /dev/bus/usb:/dev/bus/usb
 ports:
-  8110/tcp: null
-ports_description:
-  8110/tcp: AIS-catcher-control service port
-schema:
-  gpsd_ip: str
-  gpsd_port: port
-  share_loc: bool
+  8110/tcp: 8110
+  8100/tcp: 8100
+options: {}
+schema: {}
