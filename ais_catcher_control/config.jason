@@ -1,0 +1,14 @@
+{
+  "name": "AIS-catcher Control",
+  "version": "1.0",
+  "slug": "ais_catcher_control",
+  "description": "Home Assistant Add-on to run AIS-catcher Control.",
+  "arch": ["armv7", "aarch64", "amd64"],
+  "startup": "services",
+  "boot": "auto",
+  "ports": {
+    "8110/tcp": 8110
+  },
+  "options": {},
+  "schema": {}
+}
